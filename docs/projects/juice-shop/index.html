@@ -480,65 +480,175 @@
 
         </section>
 
-        <section id="evidence" class="section evidence-section">
+<section id="evidence" class="section evidence-section">
 
-            <div class="section-heading">
-                <p class="section-label">06 / EVIDENCE & DOCUMENTATION</p>
-                <h2>
-                    TECHNICAL <span>EVIDENCE.</span>
-                </h2>
+    <div class="section-heading">
+        <p class="section-label">06 / EVIDENCE & DOCUMENTATION</p>
+        <h2>
+            TECHNICAL <span>EVIDENCE.</span>
+        </h2>
+        <p>
+            Practical records and supporting materials.
+        </p>
+    </div>
 
-                <p>
-                    Practical records and supporting materials.
-                </p>
+    <div class="evidence-grid">
+
+        <!-- 01 AUTHENTICATION -->
+        <article class="evidence-card">
+            <span>01 / AUTHENTICATION</span>
+
+            <div class="evidence-images">
+                <a href="evidence/authentication/auth-01-original.jpg" target="_blank">
+                    <img src="evidence/authentication/auth-01-original.jpg"
+                         alt="Original authentication request and response"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/authentication/auth-02-no-authorization.jpg" target="_blank">
+                    <img src="evidence/authentication/auth-02-no-authorization.jpg"
+                         alt="Authentication test without Authorization header"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/authentication/auth-03-no-cookie-token.jpg" target="_blank">
+                    <img src="evidence/authentication/auth-03-no-cookie-token.jpg"
+                         alt="Authentication test without Cookie token"
+                         loading="lazy">
+                </a>
             </div>
 
-            <div class="evidence-grid">
-
-                <article class="evidence-card">
-                    <span>01 / AUTHENTICATION</span>
-                    <div class="evidence-placeholder">
-                        <span>SCREENSHOT</span>
-                        <p>인증 요청 및 응답 분석 자료 추가 예정</p>
-                    </div>
-                    <h3>Authentication Analysis</h3>
-                </article>
-
-                <article class="evidence-card">
-                    <span>02 / BOLA</span>
-                    <div class="evidence-placeholder">
-                        <span>SCREENSHOT</span>
-                        <p>Basket 접근 재현 자료 추가 예정</p>
-                    </div>
-                    <h3>BOLA Verification</h3>
-                </article>
-
-                <article class="evidence-card">
-                    <span>03 / SQL INJECTION</span>
-                    <div class="evidence-placeholder">
-                        <span>SCREENSHOT</span>
-                        <p>수정 전 취약점 재현 자료 추가 예정</p>
-                    </div>
-                    <h3>SQL Injection Test</h3>
-                </article>
-
-                <article class="evidence-card">
-                    <span>04 / RETESTING</span>
-                    <div class="evidence-placeholder">
-                        <span>SCREENSHOT</span>
-                        <p>수정 후 재검증 자료 추가 예정</p>
-                    </div>
-                    <h3>Remediation & Retesting</h3>
-                </article>
-
-            </div>
-
-            <p class="evidence-disclaimer">
-                Evidence placeholders are provided for future sanitized
-                screenshots and supporting documentation.
+            <h3>Authentication Analysis</h3>
+            <p class="evidence-description">
+                정상 인증 및 Authorization, Cookie 제거 테스트 결과
             </p>
+        </article>
 
-        </section>
+
+        <!-- 02 BOLA -->
+        <article class="evidence-card">
+            <span>02 / BOLA</span>
+
+            <div class="evidence-images">
+                <a href="evidence/access-control/ac-01-account-a-identity.jpg" target="_blank">
+                    <img src="evidence/access-control/ac-01-account-a-identity.jpg"
+                         alt="Account A identity"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/access-control/ac-02-account-a-basket.jpg" target="_blank">
+                    <img src="evidence/access-control/ac-02-account-a-basket.jpg"
+                         alt="Account A basket"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/access-control/ac-03-account-b-identity.jpg" target="_blank">
+                    <img src="evidence/access-control/ac-03-account-b-identity.jpg"
+                         alt="Account B identity"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/access-control/ac-04-account-b-own-basket.jpg" target="_blank">
+                    <img src="evidence/access-control/ac-04-account-b-own-basket.jpg"
+                         alt="Account B own basket"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/access-control/ac-05-cross-user-basket-access.jpg" target="_blank">
+                    <img src="evidence/access-control/ac-05-cross-user-basket-access.jpg"
+                         alt="Cross-user basket access"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/access-control/ac-06-account-a-basket-with-product.jpg" target="_blank">
+                    <img src="evidence/access-control/ac-06-account-a-basket-with-product.jpg"
+                         alt="Account A basket containing a product"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/access-control/ac-07-cross-user-basket-with-product.jpg" target="_blank">
+                    <img src="evidence/access-control/ac-07-cross-user-basket-with-product.jpg"
+                         alt="Cross-user basket access with product data"
+                         loading="lazy">
+                </a>
+            </div>
+
+            <h3>BOLA Verification</h3>
+            <p class="evidence-description">
+                계정 간 Basket 접근 및 다른 사용자 소유 데이터 노출 검증
+            </p>
+        </article>
+
+
+        <!-- 03 SQL INJECTION -->
+        <article class="evidence-card">
+            <span>03 / SQL INJECTION</span>
+
+            <div class="evidence-images">
+                <a href="evidence/input-validation/sql-injection/sqli-01-normal-login.jpg" target="_blank">
+                    <img src="evidence/input-validation/sql-injection/sqli-01-normal-login.jpg"
+                         alt="Normal login test before remediation"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/input-validation/sql-injection/sqli-02-invalid-login.jpg" target="_blank">
+                    <img src="evidence/input-validation/sql-injection/sqli-02-invalid-login.jpg"
+                         alt="Invalid login test"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/input-validation/sql-injection/sqli-03-sql-error.jpg" target="_blank">
+                    <img src="evidence/input-validation/sql-injection/sqli-03-sql-error.jpg"
+                         alt="SQL error during injection testing"
+                         loading="lazy">
+                </a>
+            </div>
+
+            <h3>SQL Injection Test</h3>
+            <p class="evidence-description">
+                수정 전 로그인 테스트 및 SQL Injection 재현 증거
+            </p>
+        </article>
+
+
+        <!-- 04 REMEDIATION & RETESTING -->
+        <article class="evidence-card">
+            <span>04 / REMEDIATION & RETESTING</span>
+
+            <div class="evidence-images">
+                <a href="evidence/input-validation/sql-injection/sqli-04-remediation-blocked.jpg" target="_blank">
+                    <img src="evidence/input-validation/sql-injection/sqli-04-remediation-blocked.jpg"
+                         alt="SQL Injection blocked after remediation"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/input-validation/sql-injection/sqli-05-normal-login-after-fix.jpg" target="_blank">
+                    <img src="evidence/input-validation/sql-injection/sqli-05-normal-login-after-fix.jpg"
+                         alt="Normal login after remediation"
+                         loading="lazy">
+                </a>
+
+                <a href="evidence/input-validation/sql-injection/sqli-06-invalid-login-after-fix.jpg" target="_blank">
+                    <img src="evidence/input-validation/sql-injection/sqli-06-invalid-login-after-fix.jpg"
+                         alt="Invalid login rejected after remediation"
+                         loading="lazy">
+                </a>
+            </div>
+
+            <h3>Remediation & Retesting</h3>
+            <p class="evidence-description">
+                파라미터 바인딩 적용 후 SQL Injection 차단 및 정상 인증 재검증
+            </p>
+        </article>
+
+    </div>
+
+    <p class="evidence-disclaimer">
+        Evidence collected during authorized local lab testing.
+        Sensitive authentication values have been excluded from public documentation.
+    </p>
+
+</section>
 
         <section class="section conclusion-section">
 
