@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="OWASP Juice Shop Web Application Security Assessment - Jang Wonjae">
+    <meta name="theme-color" content="#080808">
+
+    <title>OWASP JUICE SHOP | PROJECT DETAILS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="project-header">
+        <a href="../../index.html" class="logo">
+            JANG_WONJAE
+        </a>
+
+        <nav class="project-nav">
+            <a href="../../index.html">PORTFOLIO</a>
+            <a href="#overview">OVERVIEW</a>
+            <a href="#findings">FINDINGS</a>
+            <a href="#evidence">EVIDENCE</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="project-hero">
+
+            <div class="hero-background-grid"></div>
+
+            <div class="project-hero-content">
+
+                <p class="eyebrow">
+                    PROJECT DIRECTORY / 001
+                    <span>WEB APPLICATION SECURITY</span>
+                </p>
+
+                <h1>
+                    OWASP<br>
+                    <span>JUICE SHOP.</span>
+                </h1>
+
+                <p class="hero-description">
+                    WEB APPLICATION SECURITY ASSESSMENT
+                </p>
+
+                <p class="hero-subdescription">
+                    Vulnerability Analysis · Access Control · SQL Injection
+                </p>
+
+                <div class="hero-meta">
+                    <span>ENVIRONMENT / LOCAL LAB</span>
+                    <span>STATUS / COMPLETED TESTING</span>
+                    <span>2026</span>
+                </div>
+
+            </div>
+
+            <div class="hero-index">
+                <span>001</span>
+                <p>SECURITY<br>ASSESSMENT</p>
+            </div>
+
+        </section>
+
+        <section id="overview" class="section">
+
+            <div class="section-heading">
+                <p class="section-label">01 / PROJECT OVERVIEW</p>
+                <h2>
+                    UNDERSTAND THE <span>TARGET.</span>
+                </h2>
+            </div>
+
+            <div class="overview-layout">
+
+                <div class="overview-description">
+
+                    <h3>PROJECT OBJECTIVE</h3>
+
+                    <p>
+                        OWASP Juice Shop을 대상으로 웹 애플리케이션의
+                        인증, 접근 제어 및 입력값 검증 영역을 분석했습니다.
+                    </p>
+
+                    <p>
+                        테스트 환경에서 취약점을 재현하고,
+                        발생 원인과 보안 영향을 분석했습니다.
+                        SQL Injection 항목은 개선 후 재검증까지 수행했습니다.
+                    </p>
+
+                    <p>
+                        본 프로젝트는 개인 가상 실습 환경에서 진행한
+                        보안 분석 및 학습 프로젝트입니다.
+                    </p>
+
+                </div>
+
+
+                <div class="overview-info">
+
+                    <div class="info-item">
+                        <span>TARGET</span>
+                        <strong>OWASP JUICE SHOP</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>ASSESSMENT TYPE</span>
+                        <strong>WEB APPLICATION SECURITY</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>ENVIRONMENT</span>
+                        <strong>LOCAL VIRTUAL LAB</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>TOOLS</span>
+                        <strong>BURP SUITE / DOCKER</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>FOCUS AREAS</span>
+                        <strong>AUTHENTICATION / BOLA / SQLI</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section scope-section">
+
+            <div class="section-heading">
+                <p class="section-label">02 / SCOPE & ENVIRONMENT</p>
+                <h2>
+                    TEST <span>ENVIRONMENT.</span>
+                </h2>
+            </div>
+
+            <div class="environment-grid">
+
+                <article class="environment-card">
+                    <span class="card-number">01</span>
+                    <h3>TARGET APPLICATION</h3>
+                    <p>OWASP Juice Shop</p>
+                    <span class="card-detail">Web Application</span>
+                </article>
+
+                <article class="environment-card">
+                    <span class="card-number">02</span>
+                    <h3>VIRTUALIZATION</h3>
+                    <p>Ubuntu / VirtualBox</p>
+                    <span class="card-detail">Local Lab Environment</span>
+                </article>
+
+                <article class="environment-card">
+                    <span class="card-number">03</span>
+                    <h3>CONTAINER</h3>
+                    <p>Docker</p>
+                    <span class="card-detail">Juice Shop Container</span>
+                </article>
+
+                <article class="environment-card">
+                    <span class="card-number">04</span>
+                    <h3>ANALYSIS TOOL</h3>
+                    <p>Burp Suite</p>
+                    <span class="card-detail">HTTP Request / Response</span>
+                </article>
+
+            </div>
+
+            <div class="scope-notice">
+                <span>AUTHORIZED TESTING ONLY</span>
+                <p>
+                    All testing was performed within a personally controlled
+                    local virtual lab environment. No external systems were targeted.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="section methodology-section">
+
+            <div class="section-heading">
+                <p class="section-label">03 / METHODOLOGY</p>
+                <h2>
+                    ANALYSIS <span>PROCESS.</span>
+                </h2>
+            </div>
+
+            <div class="methodology-flow">
+
+                <article class="method-step">
+                    <span>01</span>
+                    <h3>RECONNAISSANCE</h3>
+                    <p>
+                        애플리케이션 구조와 HTTP 요청 및 응답 흐름 확인
+                    </p>
+                </article>
+
+                <article class="method-step">
+                    <span>02</span>
+                    <h3>ANALYSIS</h3>
+                    <p>
+                        인증, 접근 제어 및 입력값 처리 방식 분석
+                    </p>
+                </article>
+
+                <article class="method-step">
+                    <span>03</span>
+                    <h3>VERIFICATION</h3>
+                    <p>
+                        테스트 계정과 요청값을 활용한 취약점 재현
+                    </p>
+                </article>
+
+                <article class="method-step">
+                    <span>04</span>
+                    <h3>RETESTING</h3>
+                    <p>
+                        SQL Injection 수정 후 동일 유형의 입력값 재검증
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section id="findings" class="section findings-section">
+
+            <div class="section-heading">
+                <p class="section-label">04 / VULNERABILITY ANALYSIS</p>
+                <h2>
+                    SECURITY <span>FINDINGS.</span>
+                </h2>
+
+                <p>
+                    Three assessment areas examined during the project.
+                </p>
+            </div>
+
+            <article class="finding-card">
+
+                <div class="finding-top">
+                    <span class="finding-number">FINDING / 001</span>
+                    <span class="status status-verified">
+                        NO BYPASS CONFIRMED
+                    </span>
+                </div>
+
+                <h3>AUTHENTICATION ANALYSIS</h3>
+
+                <p class="finding-subtitle">
+                    Authentication & Session Handling
+                </p>
+
+                <div class="finding-content">
+
+                    <div>
+                        <h4>ANALYSIS</h4>
+                        <p>
+                            사용자 인증 상태에 따른 API 응답을 비교하고,
+                            Authorization 및 Cookie 전달 여부에 따른
+                            동작 차이를 확인했습니다.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4>RESULT</h4>
+                        <p>
+                            테스트한 조건에서 인증 우회는 확인되지 않았습니다.
+                            인증 관련 전체 보안성이 보장된다는 의미는 아닙니다.
+                        </p>
+                    </div>
+
+                </div>
+
+            </article>
+
+            <article class="finding-card">
+
+                <div class="finding-top">
+                    <span class="finding-number">FINDING / 002</span>
+                    <span class="status status-confirmed">
+                        REPRODUCED
+                    </span>
+                </div>
+
+                <h3>BOLA</h3>
+
+                <p class="finding-subtitle">
+                    Broken Object Level Authorization
+                </p>
+
+                <div class="finding-content">
+
+                    <div>
+                        <h4>ANALYSIS</h4>
+                        <p>
+                            서로 다른 두 사용자 계정을 생성하고
+                            계정별 Basket ID를 확인했습니다.
+                            이후 B 계정으로 A 계정의 Basket에 접근을 시도했습니다.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4>RESULT</h4>
+                        <p>
+                            B 계정에서 A 계정의 Basket ID인 7에 접근했으며,
+                            응답에서 UserId 25가 확인되었습니다.
+                            다른 사용자 소유 객체에 접근할 수 있음을 재현했습니다.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="technical-detail">
+                    <span>TEST REQUEST</span>
+                    <code>GET /rest/basket/7</code>
+
+                    <span>OBSERVED RESPONSE</span>
+                    <code>HTTP 200 OK / UserId: 25</code>
+                </div>
+
+                <div class="finding-note">
+                    <strong>REMEDIATION STATUS</strong>
+                    <p>
+                        개선 방안을 검토했으나 실제 소스 수정 및 재검증은
+                        수행하지 않았습니다.
+                    </p>
+                </div>
+
+            </article>
+
+            <article class="finding-card">
+
+                <div class="finding-top">
+                    <span class="finding-number">FINDING / 003</span>
+                    <span class="status status-fixed">
+                        FIXED & RETESTED
+                    </span>
+                </div>
+
+                <h3>SQL INJECTION</h3>
+
+                <p class="finding-subtitle">
+                    Improper SQL Query Construction
+                </p>
+
+                <div class="finding-content">
+
+                    <div>
+                        <h4>ANALYSIS</h4>
+                        <p>
+                            로그인 API의 입력값이 SQL 쿼리에 삽입되는
+                            방식을 확인했습니다.
+                            입력값에 SQL 구문을 포함해 인증 처리 결과를 테스트했습니다.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4>RESULT</h4>
+                        <p>
+                            수정 전 테스트에서 SQL Injection을 통한
+                            비정상적인 로그인 성공을 재현했습니다.
+                            이후 파라미터 바인딩 방식으로 쿼리를 개선했습니다.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="technical-detail">
+                    <span>TEST ENDPOINT</span>
+                    <code>POST /rest/user/login</code>
+
+                    <span>TEST PAYLOAD</span>
+                    <code>blue.lab@example.com' OR '1'='1</code>
+                </div>
+
+                <div class="remediation-block">
+
+                    <h4>REMEDIATION</h4>
+
+                    <p>
+                        문자열 결합 방식의 SQL 쿼리를
+                        Sequelize replacements를 사용하는
+                        파라미터 바인딩 방식으로 변경했습니다.
+                    </p>
+
+                    <pre><code>models.sequelize.query(
+    "SELECT * FROM Users
+     WHERE email = :email
+     AND password = :password
+     AND deletedAt IS NULL",
+    {
+        replacements: {
+            email: req.body.email || "",
+            password: security.hash(
+                req.body.password || ""
+            )
+        },
+        model: UserModel,
+        plain: true
+    }
+);</code></pre>
+
+                </div>
+
+                <div class="retest-results">
+
+                    <h4>RETEST RESULTS</h4>
+
+                    <div class="result-row">
+                        <span>Normal Login</span>
+                        <strong>HTTP 200</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Incorrect Password</span>
+                        <strong>HTTP 401</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>SQL Injection Payload</span>
+                        <strong>HTTP 401</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <section class="section remediation-section">
+
+            <div class="section-heading">
+                <p class="section-label">05 / REMEDIATION & RETESTING</p>
+                <h2>
+                    FROM ANALYSIS <span>TO FIX.</span>
+                </h2>
+            </div>
+
+            <div class="remediation-grid">
+
+                <div class="remediation-item">
+                    <span class="remediation-index">01</span>
+                    <h3>SQL INJECTION</h3>
+                    <span class="status status-fixed">
+                        FIXED & RETESTED
+                    </span>
+                    <p>
+                        SQL 쿼리의 파라미터 바인딩 적용 후
+                        정상 및 비정상 로그인 시나리오를 재검증했습니다.
+                    </p>
+                </div>
+
+                <div class="remediation-item">
+                    <span class="remediation-index">02</span>
+                    <h3>BOLA</h3>
+                    <span class="status status-pending">
+                        NOT IMPLEMENTED
+                    </span>
+                    <p>
+                        객체 소유권 검증과 서버 측 접근 제어 강화를
+                        개선 방향으로 제안합니다.
+                        실제 수정 및 재검증은 진행하지 않았습니다.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="evidence" class="section evidence-section">
+
+            <div class="section-heading">
+                <p class="section-label">06 / EVIDENCE & DOCUMENTATION</p>
+                <h2>
+                    TECHNICAL <span>EVIDENCE.</span>
+                </h2>
+
+                <p>
+                    Practical records and supporting materials.
+                </p>
+            </div>
+
+            <div class="evidence-grid">
+
+                <article class="evidence-card">
+                    <span>01 / AUTHENTICATION</span>
+                    <div class="evidence-placeholder">
+                        <span>SCREENSHOT</span>
+                        <p>인증 요청 및 응답 분석 자료 추가 예정</p>
+                    </div>
+                    <h3>Authentication Analysis</h3>
+                </article>
+
+                <article class="evidence-card">
+                    <span>02 / BOLA</span>
+                    <div class="evidence-placeholder">
+                        <span>SCREENSHOT</span>
+                        <p>Basket 접근 재현 자료 추가 예정</p>
+                    </div>
+                    <h3>BOLA Verification</h3>
+                </article>
+
+                <article class="evidence-card">
+                    <span>03 / SQL INJECTION</span>
+                    <div class="evidence-placeholder">
+                        <span>SCREENSHOT</span>
+                        <p>수정 전 취약점 재현 자료 추가 예정</p>
+                    </div>
+                    <h3>SQL Injection Test</h3>
+                </article>
+
+                <article class="evidence-card">
+                    <span>04 / RETESTING</span>
+                    <div class="evidence-placeholder">
+                        <span>SCREENSHOT</span>
+                        <p>수정 후 재검증 자료 추가 예정</p>
+                    </div>
+                    <h3>Remediation & Retesting</h3>
+                </article>
+
+            </div>
+
+            <p class="evidence-disclaimer">
+                Evidence placeholders are provided for future sanitized
+                screenshots and supporting documentation.
+            </p>
+
+        </section>
+
+        <section class="section conclusion-section">
+
+            <div class="section-heading">
+                <p class="section-label">07 / CONCLUSION</p>
+                <h2>
+                    LEARN. ANALYZE. <span>VERIFY.</span>
+                </h2>
+            </div>
+
+            <div class="conclusion-content">
+
+                <p>
+                    이번 프로젝트를 통해 웹 애플리케이션의 인증,
+                    접근 제어 및 SQL 쿼리 처리 방식을 분석했습니다.
+                </p>
+
+                <p>
+                    BOLA 취약점 재현과 SQL Injection 개선 및 재검증을
+                    수행하면서 단순한 취약점 발견뿐 아니라
+                    원인 분석과 대응 검증의 중요성을 확인했습니다.
+                </p>
+
+                <p>
+                    테스트 범위와 검증 결과를 명확히 구분하고,
+                    실제 수행한 내용과 추가 개선이 필요한 영역을
+                    기록하는 것을 중요하게 생각합니다.
+                </p>
+
+            </div>
+
+            <div class="conclusion-signature">
+                <span>JANG WONJAE</span>
+                <p>RED TEAM / SECURITY RESEARCH</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="project-footer">
+
+        <a href="../../index.html" class="footer-logo">
+            JANG_WONJAE
+        </a>
+
+        <p>
+            SECURITY RESEARCH & PENETRATION TESTING
+        </p>
+
+        <span>
+            © 2026 JANG WONJAE. ALL RIGHTS RESERVED.
+        </span>
+
+        <a href="../../index.html" class="back-link">
+            ← BACK TO PORTFOLIO
+        </a>
+
+    </footer>
+
+</body>
+</html>
