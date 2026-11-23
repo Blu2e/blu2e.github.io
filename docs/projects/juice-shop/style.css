@@ -805,18 +805,20 @@ a {
 }
 
 .evidence-images a {
-    display: block;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: #080808;
-    aspect-ratio: 16 / 10;
 }
 
 .evidence-images img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
     object-fit: contain;
+    flex: 0 0 auto;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
